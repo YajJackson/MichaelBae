@@ -17,22 +17,22 @@ const app = {
             name: f.flickName.value,
             favorite: false,
         }
+        
+        this.flicks.unshift(flick)
 
         const listItem = this.renderListItem(flick)
+        this.list.insertBefore(listItem, this.list.firstElementChild)
 
-        this.flicks.push(flick)
-        this.list.appendChild(listItem)
         this.max ++
         f.reset()
     },
 
     renderListItem(flick) {
-        const item = document.createElement('li')
-        item.textContent = flick.name
-        item.dataset.id = flick.id
-        
-        item.appendChild(this.addButtonGroup(flick.id))
-        return item
+        const listItem = document.createElement('li')
+        listItem.textContent = flick.name
+        listItem.dataset.id = flick.id
+        listItem.appendChild(this.addButtonGroup(flick.id))
+        return listItem
     },
 
     addButtonGroup(id) {
