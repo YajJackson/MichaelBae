@@ -28,9 +28,13 @@ const app = {
         f.reset()
     },
 
-    removeFlick(ev){
-        ev.target.closest('.flick').remove() //difference between closest() and this
-        
+    removeFlick(flick, ev){
+        const listItem = ev.target.closest('.flick')
+        listItem.remove() //difference between closest() and this
+
+        // remove flick from the array
+        const i = this.flicks.indexOf(flick)
+        this.flicks.splice(i, 1)
     },
 
     renderListItem(flick) {
@@ -43,7 +47,10 @@ const app = {
         
         item
             .querySelector('button.remove')
-            .addEventListener('click', this.removeFlick)
+            .addEventListener(
+                'click', 
+                this.removeFlick.bind(this, flick)
+            )
 
         return item
     },
