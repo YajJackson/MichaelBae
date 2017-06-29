@@ -28,6 +28,11 @@ const app = {
         f.reset()
     },
 
+    favFlick(flick, ev) {
+        const listItem = ev.target.closest('.flick')
+        listItem.classList.add('fav')
+    },
+
     removeFlick(flick, ev){
         const listItem = ev.target.closest('.flick')
         listItem.remove() //difference between closest() and this
@@ -46,12 +51,18 @@ const app = {
             .textContent = flick.name
         
         item
-            .querySelector('button.remove')
-            .addEventListener(
+        .querySelector('button.remove')
+        .addEventListener(
                 'click', 
                 this.removeFlick.bind(this, flick)
             )
 
+        item
+            .querySelector('button.like')
+            .addEventListener(
+                'click', 
+                this.favFlick.bind(this, flick)
+            )
         return item
     },
 
