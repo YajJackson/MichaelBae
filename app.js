@@ -4,6 +4,7 @@ const app = {
         this.flicks = []
         this.max = 0
         this.list = document.querySelector(selectors.listSelector)
+        this.template = document.querySelector(selectors.templateSelector)
         document
             .querySelector(selectors.formSelector)
             .addEventListener('submit', this.handleSubmit.bind(this)) //rebinds 'this' to the function that is called
@@ -28,11 +29,14 @@ const app = {
     },
 
     renderListItem(flick) {
-        const listItem = document.createElement('li')
-        listItem.textContent = flick.name
-        listItem.dataset.id = flick.id
-        listItem.appendChild(this.addButtonGroup(flick.id))
-        return listItem
+        const item = this.template.cloneNode(true)
+        item.dataset.id = flick.id
+        item.classList.remove('template')
+        item
+            .querySelector('.flick-name')
+            .textContent = flick.name
+        
+        return item
     },
 
     addButtonGroup(id) {
@@ -93,4 +97,5 @@ const app = {
 app.init({
     formSelector: 'form#flick-form',
     listSelector: '#flick-list',
+    templateSelector: '.flick.template',
 })

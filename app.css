@@ -17,6 +17,9 @@ h1 {
     /*color: whitesmoke;*/
     letter-spacing: 3px;
 }
+.template {
+    display: none;
+}
 .button, .buttonGroup {
     float: right;
 }
