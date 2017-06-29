@@ -4,6 +4,20 @@
 ul, li {
     list-style-type: none;
 }
+html {
+    /*background: url(https://images3.alphacoders.com/830/83015.jpg) no-repeat center center fixed;*/
+    background-size: cover;
+}
+body {
+    background: transparent;
+}
+h1 {
+    color: whitesmoke;
+    letter-spacing: 3px;
+}
+.button, .buttonGroup {
+    float: right;
+}
 /*foundation list group style*/
 .list-group {
   margin-bottom: 1rem;

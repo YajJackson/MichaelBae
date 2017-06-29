@@ -16,7 +16,6 @@ const app = {
             id: this.max + 1,
             name: f.flickName.value,
             opinion: null,
-
         }
 
         const listItem = this.renderListItem(flick)
@@ -24,19 +23,16 @@ const app = {
         this.flicks.push(flick)
         this.list.appendChild(listItem)
         this.max ++
+        f.reset()
     },
 
     renderListItem(flick) {
-        // create list item
         const item = document.createElement('li')
         item.className = 'list-group-item'
         item.id = `listItem${flick.id}`
         item.arrayId = flick.id
         item.textContent = flick.name
-
-        //create button group
         item.appendChild(this.addButtonGroup(flick.id))
-        // console.log(this.flicks)
         return item
     },
 
