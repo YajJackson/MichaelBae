@@ -41,7 +41,7 @@ const app = {
 
     removeFlick(flick, ev){
         const listItem = ev.target.closest('.flick')
-        listItem.remove() //difference between closest() and this
+        listItem.remove()
 
         // remove flick from the array
         const i = this.flicks.indexOf(flick)
@@ -51,18 +51,25 @@ const app = {
     moveFlickUp(flick, ev){
         const listItem = ev.target.closest('.flick')
         const previousItem = listItem.previousElementSibling
-        debugger
+
+        // debugger
         if(previousItem){
+            const listItemId = parseInt(listItem.dataset.id) + 1
+            const previousItemId = parseInt(previousItem.dataset.id) -1
+
+            listItem.dataset.id = listItemId
+            previousItem.dataset.id = previousItemId
+
             listItem.parentElement.insertBefore(listItem, previousItem)
         }
     },
 
     moveFlickDown(flick, ev){
         const listItem = ev.target.closest('.flick')
-        const nextItem = listItem.nextElementSibling.nextElementSibling //seems redundant
+        const nextItem = listItem.nextElementSibling //seems redundant
         debugger
-        if(nextItem){
-            listItem.parentElement.insertBefore(listItem, nextItem)
+        if(nextItem.nextElementSibling){
+            listItem.parentElement.insertBefore(listItem, nextItem.nextElementSibling)
         }
     },
 
