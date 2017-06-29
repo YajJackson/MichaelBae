@@ -15,7 +15,7 @@ const app = {
         const flick = {
             id: this.max + 1,
             name: f.flickName.value,
-            opinion: null,
+            favorite: false,
         }
 
         const listItem = this.renderListItem(flick)
@@ -28,10 +28,9 @@ const app = {
 
     renderListItem(flick) {
         const item = document.createElement('li')
-        item.className = 'list-group-item'
-        item.id = `listItem${flick.id}`
-        item.arrayId = flick.id
         item.textContent = flick.name
+        item.dataset.id = flick.id
+        
         item.appendChild(this.addButtonGroup(flick.id))
         return item
     },
