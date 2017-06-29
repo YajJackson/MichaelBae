@@ -32,7 +32,7 @@ h1 {
 #flick-list {
     margin-bottom: 0;
 }
-.flick.actions.button-group {
+.flick .actions.button-group {
     margin-bottom: 0;
 }
 .flick-name {
