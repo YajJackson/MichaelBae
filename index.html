@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--import foundation-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.0/css/foundation.min.css"/>
         <!--custom style-->
         <link rel="stylesheet" href="app.css"/>
     </head>
@@ -37,13 +37,13 @@
         <div class="grid-x">
             <div class="medium-8 medium-offset-2 cell list-container">
                 <ul id="flick-list" class="no-bullet">
-                    <li class="flick template">
-                        <span class="flick-name">some random name</span>
-                        <span class="actions">
-                            <button class="button">Up</button>
-                            <button class="button">Down</button>
-                            <button class="button">Like</button>
-                            <button class="button">Remove</button>
+                    <li class="flick template grid-x">
+                        <span class="flick-name cell auto">some random name</span>
+                        <span class="actions buttonGroup cell shrink">
+                            <button class="up button">Up</button>
+                            <button class="down button">Down</button>
+                            <button class="like button warning">Like</button>
+                            <button class="remove button alert">Remove</button>
                         </span>
                     </li>
                 </ul>

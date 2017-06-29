@@ -28,6 +28,11 @@ const app = {
         f.reset()
     },
 
+    removeFlick(ev){
+        ev.target.closest('.flick').remove() //difference between closest() and this
+        
+    },
+
     renderListItem(flick) {
         const item = this.template.cloneNode(true)
         item.dataset.id = flick.id
@@ -36,6 +41,10 @@ const app = {
             .querySelector('.flick-name')
             .textContent = flick.name
         
+        item
+            .querySelector('button.remove')
+            .addEventListener('click', this.removeFlick)
+
         return item
     },
 

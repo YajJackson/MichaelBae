@@ -5,6 +5,7 @@
 }
 ul, li {
     list-style-type: none;
+    margin-bottom: 0px;
 }
 html {
     /*background: url(https://images3.alphacoders.com/830/83015.jpg) no-repeat center center fixed;*/
@@ -20,13 +21,24 @@ h1 {
 .template {
     display: none;
 }
-.button, .buttonGroup {
+/*.button, .buttonGroup {
     float: right;
-}
+}*/
 
 .list-container {
     background-color: whitesmoke;
 }
+
+#flick-list {
+    margin-bottom: 0;
+}
+.flick.actions.button-group {
+    margin-bottom: 0;
+}
+.flick-name {
+    padding: 0 1rem; 
+}
+
 
 
 
