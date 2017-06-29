@@ -48,6 +48,24 @@ const app = {
         this.flicks.splice(i, 1)
     },
 
+    moveFlickUp(flick, ev){
+        const listItem = ev.target.closest('.flick')
+        const previousItem = listItem.previousElementSibling
+        debugger
+        if(previousItem){
+            listItem.parentElement.insertBefore(listItem, previousItem)
+        }
+    },
+
+    moveFlickDown(flick, ev){
+        const listItem = ev.target.closest('.flick')
+        const nextItem = listItem.nextElementSibling.nextElementSibling //seems redundant
+        debugger
+        if(nextItem){
+            listItem.parentElement.insertBefore(listItem, nextItem)
+        }
+    },
+
     renderListItem(flick) {
         const item = this.template.cloneNode(true)
         item.dataset.id = flick.id
@@ -69,9 +87,24 @@ const app = {
                 'click', 
                 this.favFlick.bind(this, flick)
             )
+        
+        item
+            .querySelector('button.up')
+            .addEventListener(
+                'click', 
+                this.moveFlickUp.bind(this, flick)
+            )
+
+        item
+            .querySelector('button.down')
+            .addEventListener(
+                'click', 
+                this.moveFlickDown.bind(this, flick)
+            )
+ 
         return item
     },
-    
+
 }
 
 app.init({
