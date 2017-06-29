@@ -22,3 +22,21 @@
 # Bonus 4
 
 * Add buttons that move a flick up and down the list. //reorder array as well
+
+## Day 4 Homework
+
+* Finish implementing move up and move down
+
+# Bonus 1
+
+* allow users to edit the names of existing flicks without removing and re-adding them, make span's content editable
+* update array aswell
+
+# Bonus 2
+
+* Persist the data via using `localStorage`. when you refresh the page, the flicks should still be there
+
+# Bonus 3
+
+* Allow users to filter the list of flicks, via a search field
+
