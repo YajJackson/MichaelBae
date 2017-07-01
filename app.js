@@ -14,12 +14,13 @@ const app = {
         ev.preventDefault()
         const f = ev.target
         const flick = {
-            id: this.max + 1,
+            id: this.max,
             name: f.flickName.value,
             favorite: false,
         }
         
         this.flicks.unshift(flick)
+        this.flicks.reverse() //flixed some sorting isue
 
         const listItem = this.renderListItem(flick)
         this.list.insertBefore(listItem, this.list.firstElementChild)
@@ -51,14 +52,19 @@ const app = {
     moveFlickUp(flick, ev){
         const listItem = ev.target.closest('.flick')
         const previousItem = listItem.previousElementSibling
-
-        // debugger
+        
         if(previousItem){
-            const listItemId = parseInt(listItem.dataset.id) + 1
-            const previousItemId = parseInt(previousItem.dataset.id) -1
+            // const reversedArray = this.flicks.reverse()
+            const n = this.flicks.indexOf(flick)
+            const j = this.flicks[n-1]
+            const z = this.flicks.indexOf(j)
+            
+            const currentId = parseInt(listItem.dataset.id) + 1
+            const previousId = parseInt(previousItem.dataset.id) -1
+            debugger
 
-            listItem.dataset.id = listItemId
-            previousItem.dataset.id = previousItemId
+            listItem.dataset.id = currentId
+            previousItem.dataset.id = previousId
 
             listItem.parentElement.insertBefore(listItem, previousItem)
         }
