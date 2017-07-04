@@ -14,7 +14,7 @@ const app = {
         ev.preventDefault()
         const f = ev.target
         const flick = {
-            id: this.max,
+            id: this.max + 1,
             name: f.flickName.value,
             favorite: false,
         }
@@ -25,7 +25,7 @@ const app = {
         const listItem = this.renderListItem(flick)
         this.list.insertBefore(listItem, this.list.firstElementChild)
 
-        this.max ++
+        ++ this.max
         f.reset()
     },
 
@@ -56,12 +56,13 @@ const app = {
         if(previousItem){
             // const reversedArray = this.flicks.reverse()
             const n = this.flicks.indexOf(flick)
-            const j = this.flicks[n-1]
+            const j = this.flicks[n+1]
+            const k = this.flicks[n]
             const z = this.flicks.indexOf(j)
-            
-            const currentId = parseInt(listItem.dataset.id) + 1
-            const previousId = parseInt(previousItem.dataset.id) -1
-            debugger
+
+            const currentId = parseInt(listItem.dataset.id)
+            const previousId = parseInt(previousItem.dataset.id)
+            // debugger
 
             listItem.dataset.id = currentId
             previousItem.dataset.id = previousId
@@ -73,7 +74,7 @@ const app = {
     moveFlickDown(flick, ev){
         const listItem = ev.target.closest('.flick')
         const nextItem = listItem.nextElementSibling //seems redundant
-        debugger
+        // debugger
         if(nextItem.nextElementSibling){
             listItem.parentElement.insertBefore(listItem, nextItem.nextElementSibling)
         }
@@ -93,7 +94,7 @@ const app = {
                 'click', 
                 this.removeFlick.bind(this, flick)
             )
-
+        debugger
         item
             .querySelector('button.like')
             .addEventListener(
